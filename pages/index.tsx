@@ -7,7 +7,7 @@ import { ReactElement, useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
-const videoUrl = "https://d1rip6qx2bmxf9.cloudfront.net/demo.mp4"
+const videoUrl = "https://d1rip6qx2bmxf9.cloudfront.net/vr_banner_video.mp4"
 
 export default function Home() {
   const [videoPlayer, setVideoPlayer] = useState<ReactElement | null>(null);
@@ -19,6 +19,8 @@ export default function Home() {
         url={videoUrl} 
         fallback={<p> Unable to load video...</p>}
         loop={true}
+        playing={true}
+        autoPlay={true}
       />
     )
   }, [])
@@ -32,12 +34,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+        {videoPlayer}
         <div className={styles.description}>
           <h1>
            A demo of video Streaming app using cdn!
           </h1>
         </div>
-        {videoPlayer}
       </main>
     </>
   )
